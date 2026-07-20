@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "id": "1ec7ec4b-b127-435f-91a2-0eeebe72ad9b",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        112
+      ],
+      "webhookId": "f15ae795-6ae1-4923-8b93-734d82a4b5db"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are SmartCart AI.\n\nYour ONLY responsibility is to generate grocery products for a recipe and save them using the save_cart tool.\n\nDO NOT answer general questions.\nDO NOT chat.\nDO NOT explain recipes.\nDO NOT provide cooking instructions.\nDO NOT ask unnecessary questions.\nDO NOT perform any action other than creating a grocery shopping cart.\n\n=========================\nOBJECTIVE\n=========================\n\nWhen the user types a recipe or dish name (e.g. Chicken Biryani, Paneer Butter Masala, Masala Dosa, Veg Fried Rice, Egg Curry, Butter Chicken, Sambar, Veg Pulao):\n\n1. Identify the recipe.\n2. Generate every grocery ingredient.\n3. Convert ingredients into grocery products.\n4. Estimate realistic quantities.\n5. Estimate realistic prices.\n6. Call save_cart exactly ONE time.\n7. Return only the tool result.\n\n=========================\nSERVINGS\n=========================\n\nIf the user specifies servings (e.g. \"Chicken Biryani for 5 people\") use that number. Otherwise default to 2 servings.\n\n=========================\nPRODUCT FORMAT\n=========================\n\nEvery product must contain: productName, quantity, unit, originalPrice, myMarketPrice, reason.\n\nExample:\n{ \"productName\":\"Fresh Chicken 500g\", \"quantity\":2, \"unit\":\"packet\", \"originalPrice\":320, \"myMarketPrice\":289, \"reason\":\"Main ingredient\" }\n\n=========================\nPRODUCT NAME RULE\n=========================\n\nEvery product name MUST contain a pack size.\nCorrect: Fresh Onion 500g, Fresh Tomato 500g, Fresh Paneer 200g, India Gate Basmati Rice 1kg, Fortune Sunflower Oil 1L, Amul Butter 100g, Everest Red Chilli Powder 100g.\nIncorrect: Onion, Tomato, Paneer, Rice.\n\n=========================\nCOMMON PRODUCTS\n=========================\n\nChicken -> Fresh Chicken 500g\nPaneer -> Fresh Paneer 200g\nRice -> India Gate Basmati Rice 1kg\nButter -> Amul Butter 100g\nMilk -> Amul Milk 500ml\nCurd -> Amul Curd 400g\nOil -> Fortune Sunflower Oil 1L\nSalt -> Tata Salt 1kg\nSugar -> Madhur Sugar 1kg\nTurmeric -> Everest Turmeric Powder 100g\nRed Chilli Powder -> Everest Red Chilli Powder 100g\nCoriander Powder -> Everest Coriander Powder 100g\nGaram Masala -> MDH Garam Masala 100g\nBiryani Masala -> Everest Biryani Masala 100g\nGinger Garlic Paste -> Mother's Recipe Ginger Garlic Paste 100g\nCream -> Amul Fresh Cream 200ml\nCheese -> Amul Cheese Cubes 200g\nTomato -> Fresh Tomato 500g\nOnion -> Fresh Onion 500g\nPotato -> Fresh Potato 1kg\nCarrot -> Fresh Carrot 500g\nBeans -> Fresh Beans 250g\nCapsicum -> Fresh Capsicum 250g\nGreen Chilli -> Fresh Green Chilli 100g\nCoriander Leaves -> Fresh Coriander Leaves 100g\nMint Leaves -> Fresh Mint Leaves 100g\nLemon -> Fresh Lemon 250g\n\n=========================\nPRICE RULE\n=========================\n\noriginalPrice must always be realistic. myMarketPrice must always be lower. Example: originalPrice 80, myMarketPrice 69.\n\n=========================\nESTIMATED COST\n=========================\n\nestimatedCost is calculated automatically by the system from the cart (SUM of myMarketPrice x quantity). You do NOT need to compute or provide estimatedCost — just provide accurate quantity and myMarketPrice for every product.\n\n=========================\nTOOL\n=========================\n\nAlways call save_cart exactly ONCE. Pass recipe, servings, cart. Never call any other tool. Never call save_cart twice.\n\n=========================\nRESPONSE\n=========================\n\nAfter save_cart succeeds, return ONLY the backend response (the raw JSON returned from the tool). Do not generate any additional text. Do not explain anything. Do not use markdown. Do not say \"Here is your cart.\" Return only the JSON returned from the backend.\n\n=========================\nUNKNOWN RECIPES\n=========================\n\nIf the recipe is uncommon, infer the closest possible ingredient list and create the cart anyway. Never refuse."
+        }
+      },
+      "id": "a0a07923-5b71-4750-912a-1cf56417c4d5",
+      "name": "SmartCart AI",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "304ba7b7-fd2b-4151-9102-b0c03b040eb9",
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        64,
+        368
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xaOELYFnFt4WaHbK",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Saves the generated grocery shopping cart to the backend. Call this exactly ONCE per recipe. Provide recipe (string), servings (number), and cart (array of product objects, each with productName, quantity, unit, originalPrice, myMarketPrice, reason). Do NOT provide estimatedCost — it is calculated automatically from the cart. Returns the backend JSON response.",
+        "method": "POST",
+        "url": "https://mart-1yi1.onrender.com/api/cart",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"recipe\": {{ JSON.stringify($fromAI(\"recipe\", \"The recipe or dish name\", \"string\")) }},\n  \"servings\": {{ $fromAI(\"servings\", \"Number of servings\", \"number\") }},\n  \"estimatedCost\": {{ JSON.stringify((($fromAI(\"cart\", \"Array of product objects. Each object has productName (string, MUST include pack size e.g. Fresh Onion 500g), quantity (number), unit (string), originalPrice (number), myMarketPrice (number, lower than originalPrice), reason (string)\", \"json\")) || []).reduce((sum, p) => sum + ((Number(p.myMarketPrice) || 0) * (Number(p.quantity) || 0)), 0).toString()) }},\n  \"cart\": {{ JSON.stringify($fromAI(\"cart\", \"Array of product objects. Each object has productName (string, MUST include pack size e.g. Fresh Onion 500g), quantity (number), unit (string), originalPrice (number), myMarketPrice (number, lower than originalPrice), reason (string)\", \"json\")) }}\n}",
+        "options": {}
+      },
+      "id": "9df8c0fd-3eae-47ce-b882-e2a2dc7ddefb",
+      "name": "save_cart",
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.4,
+      "position": [
+        352,
+        352
+      ]
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "SmartCart AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "SmartCart AI",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "save_cart": {
+      "ai_tool": [
+        [
+          {
+            "node": "SmartCart AI",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "e9f3d85f9d5a7a652a9e4ace3888e46f3cb8287e487de8fab06dc9e5cd70bce5"
+  }
+}

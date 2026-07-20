@@ -1,0 +1,297 @@
+export const products = [
+  // ================= LEAFY =================
+  {
+    id: 1,
+    name: "Spinach",
+    category: "leafy",
+    price: 40,
+    oldPrice: 50,
+    image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500",
+    rating: 4.8,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Fresh organic spinach rich in iron."
+  },
+  {
+    id: 2,
+    name: "Coriander",
+    category: "leafy",
+    price: 20,
+    oldPrice: 30,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1GtbqcR0soHwSaYB69Bhu4ovDD86ceQTYh8ZixSU3t2dj_zVlW7svJtfA-urESP1u9HreyH0o6agOileXvlyKWSyw820ieme_RP67Nq1xPQ&s=10",
+    rating: 4.7,
+    weight: "250g",
+    stock: "In Stock",
+    description: "Fresh coriander leaves."
+  },
+  {
+    id: 3,
+    name: "Mint",
+    category: "leafy",
+    price: 25,
+    oldPrice: 35,
+    image: "https://images.unsplash.com/photo-1628773822503-930a7eaecf80?w=500",
+    rating: 4.6,
+    weight: "250g",
+    stock: "In Stock",
+    description: "Natural mint leaves."
+  },
+  {
+    id: 4,
+    name: "Fenugreek",
+    category: "leafy",
+    price: 30,
+    oldPrice: 40,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8UtE0roLEu7uEtz3qR16YeldNHN3nUIHZrG71pfmo4Y7R7Njw2OjELCE&s=10",
+    rating: 4.5,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Healthy fenugreek leaves."
+  },
+  {
+    id: 5,
+    name: "Lettuce",
+    category: "leafy",
+    price: 45,
+    oldPrice: 60,
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500",
+    rating: 4.8,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Crispy lettuce."
+  },
+  {
+    id: 6,
+    name: "Cabbage",
+    category: "leafy",
+    price: 35,
+    oldPrice: 45,
+    image: "https://images.unsplash.com/photo-1598030304671-5aa1d6f21128?w=500",
+    rating: 4.5,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Farm fresh cabbage."
+  },
+
+  // ================= ROOT =================
+  {
+    id: 7,
+    name: "Carrot",
+    category: "root",
+    price: 55,
+    oldPrice: 70,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvo8_Q-HZbFWDZfTJkapzQp0VQlgP2omvZ9b-CA4Ddtg&s=10",
+    rating: 4.8,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Fresh carrots."
+  },
+  {
+    id: 8,
+    name: "Beetroot",
+    category: "root",
+    price: 45,
+    oldPrice: 55,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQjeVAG83WjL7LRXc8wq8ZinIK-cxYd7NS3CQkVjO9kw&s=10",
+    rating: 4.6,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Healthy beetroot."
+  },
+  {
+    id: 9,
+    name: "Potato",
+    category: "root",
+    price: 30,
+    oldPrice: 40,
+    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500",
+    rating: 4.5,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Fresh potatoes."
+  },
+  {
+    id: 10,
+    name: "Radish",
+    category: "root",
+    price: 35,
+    oldPrice: 45,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSMmHT0brKfc_8SeQuh16A3VEq7Sh2wMPiqUmUwS3fjnntR7fZHyyD9gR&s=10",
+    rating: 4.5,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Fresh radish."
+  },
+  {
+    id: 11,
+    name: "Sweet Potato",
+    category: "root",
+    price: 60,
+    oldPrice: 75,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRilq7tZ6nP4KIsf3SMXNlemHVasLos436524V5TObJVl7sFpZQOA18JfjJ&s=10",
+    rating: 4.7,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Sweet potatoes."
+  },
+  {
+    id: 12,
+    name: "Onion",
+    category: "root",
+    price: 40,
+    oldPrice: 50,
+    image: "https://images.unsplash.com/photo-1508747703725-719777637510?w=500",
+    rating: 4.5,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Fresh onions."
+  },
+
+  // ================= STEM =================
+  {
+    id: 13,
+    name: "Celery",
+    category: "stem",
+    price: 70,
+    oldPrice: 90,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvANsOVkYnzFg-498NXcre1Coa72m4CWm88d-y1XstVO0hgKNr0dLiJEg&s=10",
+    rating: 4.4,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Crispy, refreshing celery stalks."
+  },
+  {
+    id: 14,
+    name: "Asparagus",
+    category: "stem",
+    price: 120,
+    oldPrice: 150,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsl63CKZoar7gfJmvhAzuXxNBVj-uy-V9HDQO34dhqRA&s=10",
+    rating: 4.6,
+    weight: "250g",
+    stock: "In Stock",
+    description: "Tender organic green asparagus spears."
+  },
+  {
+    id: 15,
+    name: "Lotus Stem",
+    category: "stem",
+    price: 80,
+    oldPrice: 100,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQgR7eUO-meFRKbDuyTy4p81fcPxCfwjqZtz8IBx10GFRavyEoCMVWxVBL&s=10",
+    rating: 4.5,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Crispy lotus root stems, perfect for stir-fries."
+  },
+  {
+    id: 16,
+    name: "Bamboo Shoot",
+    category: "stem",
+    price: 95,
+    oldPrice: 120,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOkeZIfL2-ZsQ_njicG61f6HUMffePIfUdrHh26kMdlQn-D2uZ9WqBkSw&s=10",
+    rating: 4.3,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Freshly harvested, tender bamboo shoots."
+  },
+  {
+    id: 17,
+    name: "Kohlrabi",
+    category: "stem",
+    price: 50,
+    oldPrice: 65,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi7OtC6Z671aN0-LRYl2o80ILiWK-rXGc2FuVvZuxcO3smUNUMY1udy3US&s=10",
+    rating: 4.4,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Crisp and sweet turnip-cabbage stem."
+  },
+  {
+    id: 18,
+    name: "Leek",
+    category: "stem",
+    price: 65,
+    oldPrice: 80,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmXAS3yUvnFlpsAE-Fq1AjALX7GVGVnVu_IPGaVSUugMl-2dub2rZW4a7v&s=10",
+    rating: 4.5,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Fresh premium leeks with a sweet onion-like profile."
+  },
+
+  // ================= NON-VEG =================
+  {
+    id: 19,
+    name: "Chicken Breast",
+    category: "non-veg",
+    price: 220,
+    oldPrice: 260,
+    image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=500",
+    rating: 4.9,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Tender, skinless and boneless chicken breast."
+  },
+  {
+    id: 20,
+    name: "Fresh Salmon",
+    category: "non-veg",
+    price: 750,
+    oldPrice: 850,
+    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500",
+    rating: 4.8,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Rich in Omega-3, premium pink salmon fillets."
+  },
+  {
+    id: 21,
+    name: "Farm Eggs",
+    category: "non-veg",
+    price: 75,
+    oldPrice: 90,
+    image: "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?w=500",
+    rating: 4.7,
+    weight: "12 pcs",
+    stock: "In Stock",
+    description: "Fresh farm-laid organic brown eggs."
+  },
+  {
+    id: 22,
+    name: "Lean Mutton",
+    category: "non-veg",
+    price: 680,
+    oldPrice: 750,
+    image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=500",
+    rating: 4.8,
+    weight: "1kg",
+    stock: "In Stock",
+    description: "Freshly cut, lean mutton pieces curry cut."
+  },
+  {
+    id: 23,
+    name: "Prawns",
+    category: "non-veg",
+    price: 350,
+    oldPrice: 420,
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500",
+    rating: 4.6,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Cleaned and deveined fresh water prawns."
+  },
+  {
+    id: 24,
+    name: "Pork Chops",
+    category: "non-veg",
+    price: 450,
+    oldPrice: 520,
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=500",
+    rating: 4.5,
+    weight: "500g",
+    stock: "In Stock",
+    description: "Juicy bone-in premium pork chops."
+  }
+];
