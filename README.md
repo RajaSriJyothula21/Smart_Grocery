@@ -1,52 +1,29 @@
 # SmartCart AI – Smart Grocery Shopping Assistant
 
-SmartCart AI is an AI-powered grocery shopping application that helps users turn recipe ideas into a ready-to-use grocery cart. Users can enter a recipe or food request, and the system helps identify the required ingredients, compare them with available pantry items, and prepare the grocery list.
+SmartCart AI is an AI-powered grocery shopping application that helps users turn recipe ideas into organised grocery carts. Users can enter a recipe or food request in natural language, and the system identifies the required ingredients and helps prepare the shopping list.
 
 ## Project Overview
 
-- Converts recipe requests into required grocery ingredients.
-- Uses AI to understand natural-language food requests.
-- Helps identify ingredients that are already available in the pantry.
-- Adds required grocery items to the shopping cart.
-- Provides alternative product suggestions when needed.
-- Includes user authentication for personalised access.
-- Provides a simple web interface for managing grocery shopping.
+SmartCart AI makes grocery planning easier by combining AI with a full-stack web application.
 
-## How It Works
+The system can:
+- Accept recipe or meal requests from users.
+- Identify the ingredients required for the recipe.
+- Match ingredients with available grocery products.
+- Generate a grocery cart automatically.
+- Suggest alternative products when required.
+- Manage user accounts and authentication.
 
-1. The user enters a recipe or food request.
-2. The React frontend sends the request to the backend.
-3. The Node.js and Express.js backend processes the request.
-4. Gemini AI helps understand the recipe and identify the required ingredients.
-5. Available pantry items are compared with the required ingredients.
-6. Missing ingredients are added to the grocery cart.
-7. Alternative products can be suggested when required.
-8. MongoDB stores application and user-related data.
-9. The generated grocery cart is displayed to the user.
+## Key Features
 
-## System Flow
-
-User
-  |
-  v
-React Frontend
-  |
-  v
-REST API
-  |
-  v
-Node.js + Express.js Backend
-  |
-  +------------------+
-  |                  |
-  v                  v
-Gemini AI         MongoDB
-  |
-  v
-Ingredient Analysis
-  |
-  v
-Smart Grocery Cart
+- AI-powered recipe understanding
+- Automatic ingredient extraction
+- Recipe-to-cart generation
+- Pantry and ingredient matching
+- Alternative product suggestions
+- User authentication
+- Grocery cart management
+- Responsive web interface
 
 ## Tech Stack
 
@@ -58,13 +35,12 @@ Smart Grocery Cart
 ### Backend
 - Node.js
 - Express.js
-- REST APIs
 
 ### Database
 - MongoDB
 
 ### AI Integration
-- Gemini AI
+- Gemini API
 
 ### Authentication
 - JWT (JSON Web Token)
@@ -73,40 +49,46 @@ Smart Grocery Cart
 - Vercel
 - Render
 
-### Development Tools
-- Git
-- GitHub
-- VS Code
+## How It Works
 
-## Key Features
+1. The user enters a recipe or meal request.
+2. The request is processed using AI.
+3. Required ingredients are identified.
+4. The system matches the ingredients with grocery products.
+5. A grocery cart is generated for the user.
+6. Users can review and manage the generated cart.
 
-- AI-powered recipe understanding
-- Ingredient extraction
-- Pantry matching
-- Automatic grocery cart generation
-- Alternative product suggestions
-- User authentication
-- Grocery management
-- Responsive web interface
+## Application Flow
+
+User  
+↓  
+React Frontend  
+↓  
+Node.js + Express.js Backend  
+↓  
+Gemini API  
+↓  
+MongoDB  
+↓  
+Grocery Recommendations / Cart  
+↓  
+React Frontend
 
 ## Purpose
 
-The main purpose of SmartCart AI is to simplify grocery planning.
+The main goal of SmartCart AI is to reduce the effort involved in planning grocery purchases.
 
-Instead of manually searching for every ingredient required for a recipe, the application uses AI to understand the user's request and helps create a grocery cart based on the required ingredients.
-
-The project also demonstrates the integration of frontend development, backend APIs, databases, authentication, and Generative AI in a full-stack application.
+Instead of manually searching for every ingredient required for a recipe, users can provide their meal idea and receive an organised grocery cart.
 
 ## Future Improvements
 
-- Real-time grocery store integration
-- Price comparison between products
-- Improved AI recommendations
-- Nutrition-based recommendations
+- Personalised grocery recommendations
 - Better pantry management
-- Shopping history
-- Personalised recommendations
-- Improved mobile experience
+- Nutrition information
+- Price comparison
+- Multiple grocery store integration
+- Improved AI recommendations
+- Shopping history and favourites
 
 ## Author
 
